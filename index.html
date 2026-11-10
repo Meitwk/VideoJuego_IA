@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack 3D Pixel Art</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Motor Three.js para renderizado 3D -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+    <!-- MENÚ PRINCIPAL -->
+    <div id="login-screen">
+        <div class="login-card">
+            <h1>BLACKJACK 3D</h1>
+            <p>Edición 8-Bit / Voxel</p>
+            <input type="text" id="username-input" placeholder="Tu Apodo" value="Jugador1" maxlength="12">
+            <button id="btn-join">ENTRAR AL CASINO</button>
+        </div>
+    </div>
+
+    <!-- PANTALLA DE JUEGO 3D -->
+    <div id="game-screen" style="display: none;">
+        <canvas id="webgl-canvas"></canvas>
+
+        <!-- MENÚ DE PAUSA (ESC) -->
+        <div id="pause-overlay" style="display: none;">
+            <div class="pause-card">
+                <h2>MENÚ DE PAUSA</h2>
+                <p>Presiona <b>ESC</b> para continuar</p>
+                <button id="btn-resume" class="action-btn">CONTINUAR</button>
+                <button id="btn-exit" class="exit-btn">VOLVER AL MENÚ</button>
+            </div>
+        </div>
+
+        <!-- INTERFAZ HUD -->
+        <div class="table-header">
+            <div class="room-info">MODO: <span>VOXEL 3D</span></div>
+            <h2>MESA DE CASINO 8-BIT</h2>
+            <div class="user-info">JUGADOR: <span id="user-display"></span> <span class="esc-hint">(ESC: Menú)</span></div>
+        </div>
+
+        <div id="status-message">¡Meta: Alcanzar $2,000 fichas!</div>
+
+        <div class="stats-panel">
+            <div>Fichas: <span id="chips-display">$1000</span> / $2000</div>
+            <div>Puntos Jugador: <span id="player-score-display">0</span></div>
+            <div>Puntos Crupier: <span id="dealer-score-display">?</span></div>
+        </div>
+
+        <!-- CONTROLES -->
+        <div class="controls-bar">
+            <button id="btn-hit" disabled>PEDIR (HIT)</button>
+            <button id="btn-stand" disabled>PLANTARSE</button>
+            <button id="btn-power" class="power-btn" disabled>PODER: RECAMBIO</button>
+            <button id="btn-start" class="action-btn">NUEVA RONDA</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
